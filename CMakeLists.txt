@@ -10,7 +10,17 @@ find_package(SFML 2.5 COMPONENTS graphics window system audio REQUIRED)
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+#add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    src/funciones.cpp
+    src/adrian.cpp
+    src/beltran.cpp
+    src/fran.cpp
+    src/raul.cpp
+    src/uriel.cpp
+    src/javier.cpp
+)
 
 target_link_libraries(${PROJECT_NAME}
     sfml-graphics
