@@ -4,11 +4,7 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Juego"); // Crea una ventana window
 
-    sf::RectangleShape player({50.f, 50.f}); // Crea objeto player
-    sf::RectangleShape enemy({40.f, 40.f});  // Crea objeto enemy
-
-    player.setFillColor(sf::Color::Green);
-    player.setPosition(375.f, 500.f);
+    sf::RectangleShape enemy({40.f, 40.f}); // Crea objeto enemy
 
     enemy.setFillColor(sf::Color::Red);
     enemy.setPosition(200.f, 0.f);
@@ -18,6 +14,10 @@ int main()
     Javier javier2("assets/javier.png", {200.f, 30.f}, 0.1f);
     Javier javier3("assets/javier.png", {40.f, 200.f}, 0.1f);
     Javier javier4("assets/javier.png", {100.f, 300.f}, 0.1f);
+
+    // objeto
+    Raul raul({20.f, 20.f});
+    Beltran beltran({20.f, 20.f});
 
     if (!javier.estaListo())
         return -1;
@@ -35,14 +35,17 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
 
+        sf::Vector2f dir2(0.f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            player.move(-speed * dt, 0);
+            dir2.x -= 1.f;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            player.move(speed * dt, 0);
+            dir2.x += 1.f;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            player.move(0, -speed * dt);
+            dir2.y -= 1.f;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            player.move(0, speed * dt);
+            dir2.y += 1.f;
+
+        beltran.mover(dir2, dt);
 
         mEnemigo(enemy, dt);
 
@@ -57,12 +60,14 @@ int main()
             dir.x -= 1.f;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             dir.x += 1.f;
-        javier.mover(dir, dt);
+        raul.mover(dir, dt);
 
         window.clear();
-        window.draw(player);
+        beltran.dibujar(window);
         window.draw(enemy);
-        javier.dibujar(window); // Objeto javier
+        javier.dibujar(window);
+        raul.dibujar(window);
+        // Objeto javier
         javier2.dibujar(window);
         javier3.dibujar(window);
         javier4.dibujar(window);
