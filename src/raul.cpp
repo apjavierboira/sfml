@@ -3,7 +3,7 @@
     Raul::Raul(sf::Vector2f posicion)
     : velocidad(150.f), listo(false)
 {
-    if (!textura.loadFromFile("sprite1.png"))
+    if (!textura.loadFromFile("assets/sprite1-1.png"))
         return; // listo queda en false
 
     textura.setSmooth(false);
