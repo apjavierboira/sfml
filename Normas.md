@@ -18,3 +18,6 @@ git commit -m “V2.0 “tu nombre” “tu archivo”
 
 para cuando no puedas hacer push o commit 
 git merge
+
+incluir en funciones.h #include <cmath.h>
+float modulo(sf::Vector2fvec)
