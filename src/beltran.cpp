@@ -3,7 +3,7 @@
 Beltran::Beltran(sf::Vector2f posicion)
     : velocidad(150.f), listo(false)
 {
-    if (!textura.loadFromFile("sprite2.png"))
+    if (!textura.loadFromFile("assets/sprite2-1.png"))
         return; // listo queda en false
 
     textura.setSmooth(false);
@@ -26,6 +26,11 @@ void Beltran::setPosicion(sf::Vector2f posicion)
 void Beltran::mover(sf::Vector2f direccion, float dt)
 {
     sprite.move(direccion * velocidad * dt);
+}
+
+sf::Vector2f Beltran::getPosicion() const
+{
+    return sprite.getPosition();
 }
 
 void Beltran::dibujar(sf::RenderWindow &ventana) const

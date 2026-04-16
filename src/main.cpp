@@ -1,4 +1,5 @@
 #include "funciones.h"
+#include <cmath>
 
 int main()
 {
@@ -17,12 +18,10 @@ int main()
 
     // objeto
     Raul raul({20.f, 20.f});
-    Beltran beltran({20.f, 20.f});
+    Beltran beltran({60.f, 60.f});
 
     if (!javier.estaListo())
         return -1;
-
-    float speed = 400.f;
 
     sf::Clock clock; // Inicializamos clock
 
@@ -45,7 +44,20 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
             dir2.y += 1.f;
 
-        beltran.mover(dir2, dt);
+        // movimiento circular
+        sf::Vector2f dirb = beltran.getPosicion();
+        dirb.x = 120.f - dirb.x;
+        dirb.y = 120.f - dirb.y;
+        float temp = dirb.x * (-1);
+        dirb.x = dirb.y;
+        dirb.y = temp;
+        temp = std::sqrt(dirb.x * dirb.x + dirb.y * dirb.y);
+        dirb.x /= temp;
+        dirb.y /= temp;
+        dirb.x *= 2;
+        dirb.y *= 2;
+
+        beltran.mover(dirb, dt);
 
         mEnemigo(enemy, dt);
 
