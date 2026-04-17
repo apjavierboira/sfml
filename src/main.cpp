@@ -5,7 +5,6 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Juego"); // Crea una ventana window
 
-
     // Objeto javier
     Javier javier("assets/javier.png", {40.f, 30.f}, 0.1f);
     Javier javier2("assets/javier.png", {200.f, 30.f}, 0.1f);
@@ -15,6 +14,7 @@ int main()
     // objeto
     Raul raul({20.f, 20.f});
     Beltran beltran({60.f, 60.f});
+    Fran fran({30.f, 30.f});
 
     if (!javier.estaListo())
         return -1;
@@ -39,6 +39,7 @@ int main()
             dir2.y -= 1.f;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
             dir2.y += 1.f;
+        fran.mover(dir2, dt);
 
         // movimiento circular
         sf::Vector2f dirb = beltran.getPosicion();
@@ -54,7 +55,6 @@ int main()
         dirb.y *= 2;
 
         beltran.mover(dirb, dt);
-
 
         // Objeto Javier
         // Movimiento con WASD
@@ -72,6 +72,7 @@ int main()
         window.clear();
         beltran.dibujar(window);
         javier.dibujar(window);
+        fran.dibujar(window);
         raul.dibujar(window);
         // Objeto javier
         javier2.dibujar(window);
