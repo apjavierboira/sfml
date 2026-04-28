@@ -13,7 +13,6 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 #add_executable(${PROJECT_NAME} ${SOURCES})
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/funciones.cpp
     src/adrian.cpp
     src/beltran.cpp
     src/fran.cpp
