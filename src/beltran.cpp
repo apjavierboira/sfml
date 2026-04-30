@@ -28,12 +28,19 @@ void Beltran::mover(sf::Vector2f direccion, float dt)
     sprite.move(direccion * velocidad * dt);
 }
 
-sf::Vector2f Beltran::getPosicion() const
-{
-    return sprite.getPosition();
-}
-
 void Beltran::dibujar(sf::RenderWindow &ventana) const
 {
     ventana.draw(sprite);
+}
+
+void Beltran::actualizar(sf::Vector2f destino, float dt){
+    sf::Vector2f miposicion, direccion;
+    miposicion = sprite.getPosition();
+    
+    direccion.x = (destino.x - miposicion.x); direccion.y = (destino.y - miposicion.y);
+    direccion.x /= modulo(direccion); direccion.y /= modulo(direccion);
+
+    float velocidad = 1.5;
+
+    sprite.move(direccion*velocidad*dt);
 }
