@@ -27,6 +27,14 @@ void Fran::mover(sf::Vector2f direccion, float dt)
 {
     sprite.move(direccion * velocidad * dt);
 }
+void Fran::actualizar(sf::Vector2f destino, float dt)
+{
+    sf::Vector2f miposicion,direccion;
+    miposicion = sprite.getPosition();
+    direccion = destino - miposicion;
+    sprite.move(direccion * velocidad * dt);
+
+}
 void Fran::dibujar(sf::RenderWindow &ventana) const
 {
     ventana.draw(sprite);

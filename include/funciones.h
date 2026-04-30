@@ -31,6 +31,7 @@ public:
     Raul(const sf::Vector2f posicion);
     bool estaListo() const;
     void setPosicion(sf::Vector2f posicion);
+    sf::Vector2f getPosicion() const;
     void mover(sf::Vector2f direccion, float dt);
     void dibujar(sf::RenderWindow &ventana) const;
 
@@ -48,6 +49,7 @@ public:
     bool estaListo() const;
     void setPosicion(sf::Vector2f posicion);
     void mover(sf::Vector2f direccion, float dt);
+    void actualizar(sf::Vector2f destino, float dt);
     void dibujar(sf::RenderWindow &ventana) const;
 
 private:
@@ -63,8 +65,8 @@ public:
     Beltran(const sf::Vector2f posicion);
     bool estaListo() const;
     void setPosicion(sf::Vector2f posicion);
-    sf::Vector2f getPosicion() const;
     void mover(sf::Vector2f direccion, float dt);
+    void actualizar(sf::Vector2f destino, float dt);
     void dibujar(sf::RenderWindow &ventana) const;
 
 private:
@@ -81,6 +83,7 @@ public:
     bool estaListo() const;
     void setPosicion(sf::Vector2f posicion);
     void mover(sf::Vector2f direccion, float dt);
+    void actualizar(sf::Vector2f destino, float dt);
     void dibujar(sf::RenderWindow &ventana) const;
 
 private:
@@ -97,6 +100,7 @@ public:
     bool estaListo() const;
     void setPosicion(sf::Vector2f posicion);
     void mover(sf::Vector2f direccion, float dt);
+    void actualizar(sf::Vector2f destino, float dt);
     void dibujar(sf::RenderWindow &ventana) const;
 
 private:
